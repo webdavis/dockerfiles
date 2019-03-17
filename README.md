@@ -19,8 +19,7 @@ The `Makefile` can build each image one by one, or all of them in parallel.
 
 ## About
 
-All of the images can be found on [Docker
-Hub](https://cloud.docker.com/u/webdavis/repository/list).
+All of the images can be found on [Docker Hub](https://hub.docker.com/u/webdavis).
 
 ## Inspiration
 
