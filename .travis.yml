@@ -10,7 +10,7 @@ services:
   - docker
 
 baseimage: &baseimage
-  stage: Build Docker Baseimage
+  stage: Build docker baseimage
   language: minimal
   script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -24,13 +24,13 @@ baseimage: &baseimage
     - make cleanall
 
 subimage: &subimage
-  stage: Build Docker Subimage
+  stage: Build docker subimage
   language: minimal
   script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - travis/main.sh
     - /usr/local/bin/make "$SUBIMAGE"
-    - /usr/local/bin/make "webdavis/$(dirname ${BASEIMAGE})"
+    - /usr/local/bin/make "webdavis/$(dirname ${SUBIMAGE})"
   after_script:
     - make inspect
     - make cleanall
