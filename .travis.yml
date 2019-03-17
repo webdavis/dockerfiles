@@ -17,6 +17,7 @@ baseimage: &baseimage
     # Install make 4.2.
     - travis/main.sh
     - /usr/local/bin/make "$BASEIMAGE"
+    - /usr/local/bin/make "webdavis/$(basename ${BASEIMAGE})"
   after_script:
     # Inspect the Docker container post-test to aid in debugging.
     - make inspect
@@ -29,6 +30,7 @@ subimage: &subimage
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - travis/main.sh
     - /usr/local/bin/make "$SUBIMAGE"
+    - /usr/local/bin/make "webdavis/$(basename ${BASEIMAGE})"
   after_script:
     - make inspect
     - make cleanall
