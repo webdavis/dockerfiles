@@ -50,6 +50,11 @@ There are a number of reasons:
   development environment, then most likely it will end up here.
 - **Best Practices**: I want to figure out sane defaults for images within the DTAP cycle.
 
+## Tags
+
+See the [Tag's Wiki](https://github.com/webdavis/dockerfiles/wiki/Tags) for an in-depth
+explanation.
+
 ## Logs
 
 Check out my [worklog](./dev/worklog.md) for a play-by-play of this repo.
