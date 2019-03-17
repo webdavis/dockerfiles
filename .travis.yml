@@ -1,8 +1,8 @@
 # Automated staged deploy to DockerHub:
-# 1. build
-# 2. test
-# 3. inspect
-# 4. remove
+# 1. Build baseimage
+# 2. Build subimage
+# 3. Inspect
+# 4. Remove
 
 dist: xenial
 sudo: required
@@ -84,6 +84,9 @@ jobs:
     - <<: *baseimage
       env:
         - BASEIMAGE: 'ubuntu/18.04'
+########################################################################
+########################################################################
+########################################################################
     - <<: *subimage
       env:
         - SUBIMAGE: 'ansible/ansible-container'

@@ -11,6 +11,7 @@ The `Makefile` can build each image one by one, or all of them in parallel.
     make base                  run docker build on all of the baseimages
     make sub                   run docker build on everything except the baseimages (it's recommended to run make base first)
     make push                  push all repositories and their respective images to Docker Hub
+    make inspect               lists all images and runs docker inspect on all images
     make cleanall              remove all Docker images on the host
     make help                  display this help menu
 
@@ -48,6 +49,6 @@ There are a number of reasons:
   development environment, then most likely it will end up here.
 - **Best Practices**: I want to figure out sane defaults for images within the DTAP cycle.
 
-#### Logs
+## Logs
 
 Check out my [worklog](./dev/worklog.md) for a play-by-play of this repo.
