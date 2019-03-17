@@ -2,6 +2,8 @@
 
 _This repo contains various Dockerfiles for images that I create._
 
+[![Build Status](https://travis-ci.com/webdavis/dockerfiles.svg?branch=master)](https://travis-ci.com/webdavis/dockerfiles)
+
 ## Usage
 
 The `Makefile` can build each image one by one, or all of them in parallel.
