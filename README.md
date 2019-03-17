@@ -30,8 +30,8 @@ Hub](https://cloud.docker.com/u/webdavis/repository/list).
 
 #### `baseimages`
 
-_The subdirectories in this folder contain the base images that many of the other images
-in this repository are built on top of. The images in these subdirectories should always
+The subdirectories in this folder contain the base images that many of the other images
+in this repository are built on top of. _The images in these subdirectories should always
 be built first._
 
 Furthermore, these images are based off of bare-bones operating system images, and should
