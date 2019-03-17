@@ -1,0 +1,1 @@
+sudo docker run --rm -ti webdavis/ansible:ansible-container version | tr '[:upper:]' '[:lower:]' | sed -e 's/, version//g' -e 's/ /-/g' | sed -n 1p | sed 's/\r$//g'

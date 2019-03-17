@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Exit immediately upon error.
+set -e
+
+# Print expansions to stdout to aid with debugging.
+set -x
+
+# Determine output mode on /dev/stdout. See issue:
+# https://github.com/phusion/baseimage-docker/issues/468
+if [ -p '/dev/stdout' ]; then
+    sed -i 's/##SYSLOG_OUTPUT_MODE_DEV_STDOUT##/pipe/' /etc/syslog-ng/syslog-ng.conf
+else
+    sed -i 's/##SYSLOG_OUTPUT_MODE_DEV_STDOUT##/file/' /etc/syslog-ng/syslog-ng.conf
+fi
+
+# Redirect stderr to stdout so that runit catches it.
+exec 2>&1
+exec /usr/sbin/syslog-ng -F --no-caps

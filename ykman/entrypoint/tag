@@ -1,0 +1,1 @@
+sudo docker run --rm -ti webdavis/ykman:entrypoint ykman --version | sed -n 2p | awk '{ print $NF }' | sed 's/\r$//g'

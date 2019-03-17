@@ -1,0 +1,1 @@
+sudo docker run --rm -ti webdavis/ansible:ansible-playbook --version | sed -e 's/ /-/g' | sed -n 1p | sed 's/\r$//g'
