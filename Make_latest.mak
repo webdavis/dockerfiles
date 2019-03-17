@@ -7,4 +7,5 @@ LATEST = \
 	ubuntu:18.04 \
 	vim-plugin:alpine \
 	ansible:ansible-playbook \
+	grip:entrypoint \
 	ykman:entrypoint

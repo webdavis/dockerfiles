@@ -107,6 +107,9 @@ jobs:
         - SUBIMAGE: 'ansible/ubuntu-18.04'
     - <<: *subimage
       env:
+        - SUBIMAGE: 'grip/entrypoint'
+    - <<: *subimage
+      env:
         - SUBIMAGE: 'vim-plugin/alpine'
     - <<: *subimage
       env:
