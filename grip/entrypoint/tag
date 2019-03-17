@@ -1,0 +1,1 @@
+sudo docker run --rm -ti webdavis/grip:entrypoint grip --version | awk '{ print $NF }' | sed 's/\r$//g'
