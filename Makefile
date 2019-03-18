@@ -44,7 +44,7 @@ BASEIMAGES := ${BASEIMAGES:baseimages/%/=%}
 base: $(BASEIMAGES)
 
 .ONESHELL:
-baseimages/$(BASEIMAGES):
+$(BASEIMAGES):
 	@:$(call build,baseimages/$(@))
 
 # Any image NOT under the baseimages/ directory.
@@ -72,10 +72,11 @@ $(REPOS):
 # This Makefile shouldn't create any files.
 .PHONY: all base $(BASEIMAGES) sub $(SUBIMAGES) push $(REPOS)
 
-all: base sub
+all: base sub push
 
 inspect:
 	@${docker} image ls -a
+	@${docker} inspect $(shell ${docker} image ls -q)
 
 # Be careful! This removes all of the Docker images on the host.
 cleanall:

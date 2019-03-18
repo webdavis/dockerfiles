@@ -1,0 +1,114 @@
+# Automated staged deploy to DockerHub:
+# 1. build
+# 2. test
+# 3. inspect
+# 4. remove
+
+dist: xenial
+sudo: required
+services:
+  - docker
+
+baseimage: &baseimage
+  stage: Build Docker Baseimage
+  language: minimal
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    # Install make 4.2.
+    - travis/main.sh
+    - /usr/local/bin/make "$BASEIMAGE"
+  after_script:
+    # Inspect the Docker container post-test to aid in debugging.
+    - make inspect
+    - make cleanall
+
+subimage: &subimage
+  stage: Build Docker Subimage
+  language: minimal
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - travis/main.sh
+    - /usr/local/bin/make "$SUBIMAGE"
+  after_script:
+    - make inspect
+    - make cleanall
+
+# Baseimages build in parallel, first, and if they are successful the subimages build in
+# parallel afterwards.
+jobs:
+  include:
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'alpine/base'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'alpine/runit'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'alpine/s6'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'archlinux/base'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'archlinux/s6'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'archlinux/systemd'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'centos/7-s6'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'centos/7-systemd'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'centos/7'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'debian/stretch-s6'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'debian/stretch-systemd'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'debian/stretch'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'ubuntu/18.04-s6'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'ubuntu/18.04-systemd'
+    - <<: *baseimage
+      env:
+        - BASEIMAGE: 'ubuntu/18.04'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/ansible-container'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/ansible-playbook'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/archlinux'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/centos-7'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/debian-stretch'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ansible/ubuntu-18.04'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'vim-plugin/alpine'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'vim-plugin/centos-7'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'vim-plugin/ubuntu-18.04'
+    - <<: *subimage
+      env:
+        - SUBIMAGE: 'ykman/entrypoint'
