@@ -8,6 +8,9 @@ The `Makefile` can build each image one by one, or all of them in parallel.
 
     make                       build all of the docker images, tag, and then push them to Docker Hub
     make [parent-dir/sub-dir]  run docker build on specific Dockerfiles based on the parent-dir/sub-dir provided
+    make base                  run docker build on all of the baseimages
+    make sub                   run docker build on everything except the baseimages (it's recommended to run make base first)
+    make push                  push all repositories and their respective images to Docker Hub
     make cleanall              remove all Docker images on the host
     make help                  display this help menu
 
