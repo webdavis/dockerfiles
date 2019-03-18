@@ -15,7 +15,7 @@ baseimage: &baseimage
   script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     # Install make 4.2.
-    - travis/main.sh
+    - for f in travis/*; do $f; done
     - /usr/local/bin/make "$BASEIMAGE"
     - /usr/local/bin/make "webdavis/$(dirname ${BASEIMAGE})"
   after_script:
@@ -28,7 +28,7 @@ subimage: &subimage
   language: minimal
   script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - travis/main.sh
+    - for f in travis/*; do $f; done
     - /usr/local/bin/make "$SUBIMAGE"
     - /usr/local/bin/make "webdavis/$(dirname ${SUBIMAGE})"
   after_script:
