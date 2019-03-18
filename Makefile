@@ -1,14 +1,14 @@
 #
-# This makefile can perform the following options:
+# This makefile has the following targets:
 #
-# - make                     run the Vim tests inside of Vim and Neovim, inside of a Docker container
-# - make docker/vim          run the Vim tests inside of Vim, inside of a Docker container
-# - make docker/nvim         run the Vim tests inside of Neovim, inside of a Docker container
-# - make build               builds the Docker container
-# - make test                run the Makefile in the ./vim-denver/test directory
-# - make test TARGET=[nv]im  run a specific target of the Makefile that's inside the ./vim-denver/test directory
-# - make clean               stop and remove the Docker container
-# - make cleanall            remove the Docker image
+# - make                       build all of the docker images, tag, and then push them to Docker Hub
+# - make [parent-dir/sub-dir]  run docker build on specific Dockerfiles based on the parent-dir/sub-dir provided
+# - make base                  run docker build on all of the baseimages
+# - make sub                   run docker build on everything except the baseimages (it's recommended to run `make base` first)
+# - make push                  push all repositories and their respective images to Docker Hub
+# - make inspect               lists all images and runs docker inspect on all images
+# - make cleanall              remove all Docker images on the host
+# - make help                  display this help menu
 #
 
 # Constants.
