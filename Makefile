@@ -74,6 +74,9 @@ $(REPOS):
 
 all: base sub
 
+inspect:
+	@${docker} image ls -a
+
 # Be careful! This removes all of the Docker images on the host.
 cleanall:
 	@${docker} rmi -f $(shell ${docker} image ls -q)

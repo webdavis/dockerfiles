@@ -46,7 +46,7 @@ jobs:
       - make $BASEIMAGE
       after_script:
       # Inspect the Docker container post-test to aid in debugging.
-      # - make inspect
+      - make inspect
       - make cleanall
     - stage: build docker subimages
       script:
@@ -54,5 +54,5 @@ jobs:
       - make $SUBIMAGE
       after_script:
       # Inspect the Docker container, post-test, to aid in debugging.
-      # - make inspect
+      - make inspect
       - make cleanall
