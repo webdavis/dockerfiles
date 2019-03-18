@@ -2,6 +2,15 @@
 
 _This repo contains various Dockerfiles for images that I create._
 
+## Usage
+
+The `Makefile` can build each image one by one, or all of them in parallel.
+
+    make                       build all of the docker images, tag, and then push them to Docker Hub
+    make [parent-dir/sub-dir]  run docker build on specific Dockerfiles based on the parent-dir/sub-dir provided
+    make cleanall              remove all Docker images on the host
+    make help                  display this help menu
+
 ## About
 
 All of the images can be found on [Docker
@@ -12,15 +21,6 @@ Hub](https://cloud.docker.com/u/webdavis/repository/list).
 * [Jess Frazelle's dockerfiles](https://github.com/jessfraz/dockerfiles)
    - I've seen many repos dedicated to `Dockerfiles`, but Jess's centralized proposal
      is the best solution I've seen for keeping repo-noise at a sane level.
-
-## Usage
-
-The `Makefile` can build each image one by one, or all of them in parallel.
-
-    make                       build all of the docker images, tag, and then push them to Docker Hub
-    make [parent-dir/sub-dir]  run docker build on specific Dockerfiles based on the parent-dir/sub-dir provided
-    make cleanall              remove all Docker images on the host
-    make help                  display this help menu
 
 ## Extras
 
