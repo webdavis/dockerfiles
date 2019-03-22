@@ -26,11 +26,13 @@ RUN builddeps=' \
 	    python-dev \
 	    python3-dev \
 	    musl-dev \
-	    gcc \
 	    ' \
     && apk update --no-cache \
     && apk add --no-cache \
 	    sudo \
+            autoconf \
+            pkgconf \
+            automake \
 	    make \
 	    gcc \
 	    curl \
