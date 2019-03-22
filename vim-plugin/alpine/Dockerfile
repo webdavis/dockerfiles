@@ -35,6 +35,7 @@ RUN builddeps=' \
             automake \
 	    make \
 	    gcc \
+            g++ \
 	    curl \
 	    git \
 	    python \
