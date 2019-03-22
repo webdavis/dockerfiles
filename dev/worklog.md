@@ -8,7 +8,13 @@ I'm using this file as an electronic bookmark, so to speak. Logging this stuff i
 makes them bloated, and ends up causing odd work-in-progress commits, which is bad
 practice.
 
-This file should always be committed **by itself** to prevent any strange merge problems.
+This file should always be committed by itself to prevent any strange merge problems. To
+ignore TravisCI builds insert the text `[skip travisci]` in the header of the Git commit,
+like so:
+
+```
+[skip travisci] ... some commit message ...
+```
 
 ## 2019-03-05, Tuesday
 
