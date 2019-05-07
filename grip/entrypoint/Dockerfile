@@ -11,11 +11,11 @@
 #   $ sudo docker run -ti \
 #           --rm \
 #           --volume=${HOME}/.grip:/root/.grip:ro \
-#           --volume=${HOME}/.grip:/root/.grip:ro \
-#           --port 6419:6419 \
+#           --volume=${PWD}:/root \
+#           -p 6419:6419 \
 #           --name grip \
 #           webdavis/grip:entrypoint \
-#           docs/README.md 0.0.0.0:6419
+#           README.md 0.0.0.0:6419
 #
 FROM alpine:latest
 LABEL maintainer "Stephen A. Davis <stephen@webdavis.io>"
@@ -37,5 +37,6 @@ RUN builddeps=' \
     find / -name '*.pyc' -delete; \
     find / -name '*__pycache__*' -delete
 
+WORKDIR /root
 EXPOSE 6419
 ENTRYPOINT ["grip"]
