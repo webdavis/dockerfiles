@@ -16,7 +16,7 @@ like so:
 [skip travisci] ... some commit message ...
 ```
 
-## Logs
+## Timeline
 
 ### 2019-03-05, Tuesday
 
@@ -33,14 +33,14 @@ like so:
   container for failed processes, which adheres to the "Docker way".
 - 2:00h (2310-0110): Read through the following resources to wrap my head around
   [s6](http://skarnet.org/software/s6/index.html) (`s6`):
-  - http://skarnet.org/software/s6/overview.html
-  - http://skarnet.org/software/s6/why.html
-  - http://smarden.org/runit/
-  - http://skarnet.org/software/s6/s6-svscan-1.html
-  - http://skarnet.org/software/s6/notifywhenup.html
-  - https://jdebp.eu/FGA/unix-daemon-design-mistakes-to-avoid.html
-  - https://tutumcloud.wordpress.com/2014/12/02/docker-and-s6-my-new-favorite-process-supervisor/
-  - http://skarnet.org/software/execline/
+   - http://skarnet.org/software/s6/overview.html
+   - http://skarnet.org/software/s6/why.html
+   - http://smarden.org/runit/
+   - http://skarnet.org/software/s6/s6-svscan-1.html
+   - http://skarnet.org/software/s6/notifywhenup.html
+   - https://jdebp.eu/FGA/unix-daemon-design-mistakes-to-avoid.html
+   - https://tutumcloud.wordpress.com/2014/12/02/docker-and-s6-my-new-favorite-process-supervisor/
+   - http://skarnet.org/software/execline/
 
 ### 2019-03-15, Friday
 
@@ -82,15 +82,15 @@ like so:
 ### 2019-03-19, Tuesday
 
 - 0:25m (1000-1100): Created Grip image.
-  - This didn't work exactly like I though it would. The port mapping needs to be declared
-    twice: once from `host:container`, and again as an argument to grip as
-    `container:localhost`.
+   - This didn't work exactly like I though it would. The port mapping needs to be
+   declared twice: once from `host:container`, and again as an argument to grip as
+   `container:localhost`.
 
 ### 2019-03-20, Wednesday
 
 - 1:00h (0800-0900): Issue #4: Tags Wiki creation.
-  - Decided to go with an example, walking the imaginary person through creating a repo
-  with a dynamically generated tag.
+   - Decided to go with an example, walking the imaginary person through creating a repo
+   with a dynamically generated tag.
 
 ### 2019-03-22, Friday
 
@@ -98,5 +98,11 @@ like so:
 
 ### 2019-03-25, Monday
 
-- 1:40m (0800-0940): Read about Gerrit, a Git code review tool. I would like to have an
-  image of this because I'll most likely have to run multiple servers.
+- 1:40m (0800-0940): Read about Gerrit, a Git code review tool.
+   - I would like to have an image of this because I'll most likely have to run multiple
+   servers.
+
+### 2019-05-06, Monday
+
+- 0:10m (2030-2040): Issue #5: grip: cannot add volume to / directory.
+   - Changed working directory to `/root`
