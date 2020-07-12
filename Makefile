@@ -31,7 +31,7 @@ include Make_latest.mak
 
 define build
 	$(call namespace,$(1))
-	@${docker} build --force-rm --tag ${img} $(1)
+	@${docker} build --no-cache --force-rm --tag ${img} $(1)
 	$(if $(wildcard $(CURDIR)/$(1)/tag),${docker} tag ${img} ${repo}:`$(file < $(CURDIR)/$(1)/tag)`)
 	$(if $(filter ${name}:${tag},${LATEST}),${docker} tag ${img} ${repo}:latest)
 endef
